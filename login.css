@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"></path><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"></path><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"></path></svg>') repeat-x;
+    animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave1 {
+    animation-delay: 0s;
+    opacity: 0.7;
+}
+
+.wave2 {
+    animation-delay: -2s;
+    opacity: 0.5;
+    animation-duration: 8s;
+}
+
+.wave3 {
+    animation-delay: -4s;
+    opacity: 0.3;
+    animation-duration: 12s;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+    100% { transform: translateX(-50%); }
+}
+
+.whale {
+    position: absolute;
+    top: 20%;
+    right: -200px;
+    animation: swim 15s linear infinite;
+}
+
+.whale-body {
+    width: 150px;
+    height: 80px;
+    background: #4a90e2;
+    border-radius: 50px 20px 50px 20px;
+    position: relative;
+}
+
+.whale-eye {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+.whale-fin {
+    width: 30px;
+    height: 20px;
+    background: #357abd;
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    bottom: -10px;
+    left: 40px;
+}
+
+.whale-tail {
+    width: 40px;
+    height: 60px;
+    background: #4a90e2;
+    border-radius: 20px 0 0 20px;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    transform: rotate(-20deg);
+}
+
+@keyframes swim {
+    0% { right: -200px; }
+    100% { right: 100%; }
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    backdrop-filter: blur(10px);
+}
+
+.login-box h1 {
+    color: #1e3c72;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.login-box p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.login-info {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f0f8ff;
+    border-radius: 10px;
+    font-size: 12px;
+    color: #666;
+}
+/* Logo SEPATRIA di pojok kanan atas login */
+.login-logo-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.login-logo-right .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(30, 60, 114, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.login-logo-right .logo-container:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 1);
+}
+
+.login-logo-right .logo-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4a90e2;
+    transition: transform 0.3s ease;
+}
+
+.login-logo-right .logo-image:hover {
+    transform: rotate(360deg);
+}
+
+.login-logo-right .logo-text {
+    color: #1e3c72;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Responsive untuk mobile */
+@media screen and (max-width: 480px) {
+    .login-logo-right {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .login-logo-right .logo-container {
+        padding: 6px 12px;
+    }
+    
+    .login-logo-right .logo-image {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .login-logo-right .logo-text {
+        font-size: 0.8rem;
+    }
+}
+/* Tambahkan di login.css */
+
+/* Multiple Whales untuk Login */
+.whale {
+    position: absolute;
+    top: 20%;
+    right: -200px;
+    animation: swimLogin 18s linear infinite;
+}
+
+/* Paus Kedua */
+.whale-second {
+    position: absolute;
+    top: 60%;
+    left: -150px;
+    animation: swimLoginReverse 15s linear infinite;
+    animation-delay: -7s;
+}
+
+.whale-second .whale-body {
+    width: 120px;
+    height: 60px;
+    background: #87ceeb;
+    border-radius: 40px 15px 40px 15px;
+}
+
+.whale-second .whale-eye {
+    width: 6px;
+    height: 6px;
+    top: 15px;
+    left: 25px;
+}
+
+.whale-second .whale-fin {
+    width: 25px;
+    height: 15px;
+    bottom: -8px;
+    left: 35px;
+}
+
+.whale-second .whale-tail {
+    width: 30px;
+    height: 45px;
+    top: 8px;
+    right: -20px;
+}
+
+@keyframes swimLogin {
+    0% { 
+        right: -200px; 
+        transform: translateY(0px);
+    }
+    25% { 
+        transform: translateY(-15px);
+    }
+    50% { 
+        transform: translateY(0px);
+    }
+    75% { 
+        transform: translateY(15px);
+    }
+    100% { 
+        right: 100%; 
+        transform: translateY(0px);
+    }
+}
+
+@keyframes swimLoginReverse {
+    0% { 
+        left: -150px; 
+        transform: translateY(0px) scaleX(-1);
+    }
+    30% { 
+        transform: translateY(10px) scaleX(-1);
+    }
+    70% { 
+        transform: translateY(-10px) scaleX(-1);
+    }
+    100% { 
+        left: 100%; 
+        transform: translateY(0px) scaleX(-1);
+    }
+}
+
+/* Gelembung untuk Login */
+.login-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.login-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: bubbleLogin 10s linear infinite;
+}
+
+.login-bubble:nth-child(1) {
+    width: 8px;
+    height: 8px;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.login-bubble:nth-child(2) {
+    width: 12px;
+    height: 12px;
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.login-bubble:nth-child(3) {
+    width: 6px;
+    height: 6px;
+    left: 60%;
+    animation-delay: 6s;
+}
+
+.login-bubble:nth-child(4) {
+    width: 10px;
+    height: 10px;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes bubbleLogin {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100vh;
+        opacity: 0;
+    }
+}
+.login-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
